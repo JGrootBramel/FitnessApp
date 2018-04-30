@@ -64,5 +64,20 @@ public class Exercise {
     }
 
 
+/*    private int calsPerMinute;
+
+    public int burnedCalsPerM (int minutes) {
+        int burnedCals = minutes * calsPerMinute;
+        System.out.println("In "+ minutes + " Minuten hast du " + burnedCals + " kcal verbrannt");
+        return burnedCals;
+    }
+
+    public int burnedCalsPerHM (int hour, int minutes) {
+        int burnedCals = (hour * 60 + minutes) * calsPerMinute;
+        System.out.println("In "+ minutes + " Minuten hast du " + burnedCals + " kcal verbrannt");
+        return burnedCals;
+    }
+*/
+
 }
 

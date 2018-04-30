@@ -52,9 +52,13 @@ public class App {
         start.ausgabe();
         joggen.ausgabe();
         laufband.benoetigtStromversorgung();
+        laufband.burnedCalsPerM(30);
+        laufband.burnedCalsPerHM(2,30 );
         latzug.ausgabe();
         langhantel.benoetigtStromversorgung();
         ruderzug.ausgabe();
+
+
 
         joggen.calGoal(600);
         joggen.timeNessesary(600);

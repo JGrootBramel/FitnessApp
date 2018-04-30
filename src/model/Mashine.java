@@ -9,16 +9,14 @@ public class Mashine {
     private String name;
     private String type;
     private Musclegroup musclegroup;
-
+    private int maxTime;
     private boolean electric;
     private int calsPerMinute;
-    private int maxTime;
     private int avergeCalsPerH = calsPerMinute * 60;
 
-    public int getCalsPerMinute() {
-        return calsPerMinute;
-    }
-    private String[] types = {"Cardio","Freihantel","Kabelzug","Gerät mit festen Gewichten","Gerät mit losen Gewichten," +
+
+
+    private String[] types = {"Cardio","Freihantel","Kabelzug","Gerät mit festen Gewichten", "Gerät mit losen Gewichten",
             "Gerät für Eigenkörpergewicht"};
 
 
@@ -39,10 +37,23 @@ public class Mashine {
         }
     }
 
-    //Calorienverbrennung nicht linear sondern setzt erst nach 30-45 minuten Training richtig ein. wie bilde ich das richtig ab?
-    //nur bei Cardio wirklich ermittelbar ohne Herzschlagmessung...
-    public void burnedCalories () {
-        System.out.println("In "+ " Sekunden hast du " + " kcal verbrannt");
+    public int getCalsPerMinute() {
+        return calsPerMinute;
+    }
+
+    /*Calorienverbrennung nicht linear sondern setzt erst nach 30-45 minuten Training richtig ein. wie bilde ich das richtig ab?
+    nur bei Cardio wirklich ermittelbar ohne Herzschlagmessung...
+    */
+    public int burnedCalsPerM (int minutes) {
+        int burnedCals = minutes * calsPerMinute;
+        System.out.println("In "+ minutes + " Minuten hast du " + burnedCals + " kcal verbrannt");
+        return burnedCals;
+    }
+
+    public int burnedCalsPerHM (int hour, int minutes) {
+        int burnedCals = (hour * 60 + minutes) * calsPerMinute;
+        System.out.println("In "+ minutes + " Minuten hast du " + burnedCals + " kcal verbrannt");
+        return burnedCals;
     }
 
     public void averageCalsPerH () {
