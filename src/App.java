@@ -17,7 +17,7 @@ public class App {
         Training start = new Training(startingDate, startingTime);
 
 
-        //Muskelgruppen definieren
+        //Array der Muskelgruppen definieren
         String[] armMuskeln = {"Bizeps", "Trizeps","Unterarmmuskeln"};
         String[] rueckenMuskeln = {"Latissimus","Trapezius","Rückenstrecker"};
         String[] schulterMuskeln = {"Delta Muskel","kleiner Rundmuskel","großer Rundmuskel"};
@@ -25,6 +25,8 @@ public class App {
         String[] beinMuskeln = {"Quadrizeps","Beinbizeps","Gesäß","Waden"};
         String[] bauchMuskeln = {"Oberer Bauchmuskeln","Untere Bauchmuskeln","Seitliche Bauchmuskeln"};
 
+
+        //Objekte MGroup aus Muskelarrays erzeugen
         Musclegroup ruecken = new Musclegroup("Rücken", rueckenMuskeln);
         Musclegroup schultern = new Musclegroup("Schultern", schulterMuskeln);
         Musclegroup brust = new Musclegroup("Brust", brustMuskeln);
@@ -32,6 +34,7 @@ public class App {
         Musclegroup arme = new Musclegroup("Arme", armMuskeln);
         Musclegroup bauch = new Musclegroup("Bauch", bauchMuskeln);
 
+        //Geraete erzeugen
         Mashine laufband = new Mashine("Laufband","Cardio", beine, 300, 30, true);
         Mashine fahrrad = new Mashine("Fahrrad", "Cardio", beine,360, 45, false);
         Mashine langhantel = new Mashine("Langhantel", "Hypertrophie", ruecken, 5, 50, false);
