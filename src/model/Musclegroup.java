@@ -4,15 +4,12 @@ public class Musclegroup {
 
     private String[] mGroups = {"Rücken", "Schultern", "Brust", "Beine", "Bauch", "Beine"};
 
+    private String name;
 
     public Musclegroup(String name, String[] muscles) {
         this.name = name;
         this.muscles = muscles;
     }
-
-    private String name;
-
-
 
     private String[] muscles;
 
@@ -33,8 +30,6 @@ public class Musclegroup {
 
     public void ausgabeMGroups() {
         for (int i = 0; i < mGroups.length; i++) {
-
-
             System.out.println(mGroups[i]);
         }
     }

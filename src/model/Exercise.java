@@ -10,30 +10,30 @@ public class Exercise {
     private int calAim;
     private int minutes;
     private static int nextNumber = 1;
-    private Musclegroup mGroup1;
-    private String [] muscles;
+
+    private Musclegroup[] mGroup;
     private Mashine mashine;
 
-    public Exercise (String name, Mashine mashine, String[] muscles){
+    public Exercise (String name, Mashine mashine, Musclegroup[] mGroup){
         number = Exercise.nextNumber++;
         this.name = name;
         this.mashine = mashine;
         this.weight = 0;
         this.sets = 0;
         this.reps = 0;
-        this.muscles = muscles;
+        this.mGroup = mGroup;
         this.calAim = 0;
 
     }
 
-    public Exercise (String name, Mashine mashine, double weight, int sets, int reps, int calAim, String [] muscles) {
+    public Exercise (String name, Mashine mashine, double weight, int sets, int reps, int calAim, Musclegroup[] mGroup) {
         number = Exercise.nextNumber++;
         this.name = name;
         this.mashine = mashine;
         this.weight = weight;
         this.sets = sets;
         this.reps = reps;
-        this.muscles = muscles;
+        this.mGroup = mGroup;
         this.calAim = calAim;
     }
 
@@ -44,6 +44,11 @@ public class Exercise {
     public int getMinutes() {
         return minutes;
     }
+
+    public Mashine getMashine() {
+        return mashine;
+    }
+
     public void setMinutes(int minutes) {
         this.minutes = minutes;
     }
@@ -60,7 +65,16 @@ public class Exercise {
     }
 
     public int timeNessesary (int calGoal) {
+        System.out.println("Um " + calGoal + " kcal zu verbrennen musst du die Übung " + name + " für " + calGoal / mashine.getCalsPerMinute() + " Minuten ausführen");
         return calGoal / mashine.getCalsPerMinute();
+    }
+
+    public boolean trainsMuscle (String muscle){
+        return true;
+    }
+
+    public void Train (int minutes) {
+        this.minutes = +minutes;
     }
 
 

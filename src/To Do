@@ -1,0 +1,53 @@
+In Progress
+
+TODO
+Mashine
+Methoden
+- boolean unterstuetzt(String muskel)  liefert true, wenn dieses Gerät den angegebenen muskel unterstützt.
+- boolean unterstuetzt(Muskelgruppe muskelGruppe)  liefert true, wenn dieses Gerät ein eine bestimmte muskelGruppe unterstützt
+
+Trainingseinheit "Exercise"
+
+Muskelgruppe
+
+DONE
+
+Mashine
+- Gerätename
+- Gerätetyp (z.B. Cardio, Krafttraining)
+- Trainierte Muskelgruppe (Referenz auf ein Objekt der Klasse Muskelgruppe).
+- Maximal empfohlene Trainingsdauer
+- Verbrauchte Kalorien pro Stunde (Durchschnittswerte)
+
+Methoden
+- Ein Konstruktor zum Festlegen aller Daten
+- int kalorienverbrauch (int minuten)  liefert den Kalorienverbrauch für eine Trainingseinheit für die angegebene Zeitspanne (in minuten)
+- int kalorienverbrauch (int stunden, int minuten)  liefert den Kalorienverbrauch für eine Trainingseinheit für die angegebene Zeitspanne (in stunden und minuten)
+- boolean benoetigtStromversorgung ()  liefert true, wenn dieses Gerät Strom braucht
+
+
+Trainingseinheit "Exercise"
+- Datum und Startzeit des Trainings
+- Welches Fitnessgerät verwendet wurde.
+- Dauer des Trainings
+
+Methoden
+- Ein Konstruktor zum Festlegen des Fitnessgeräts, Datums und Startzeit
+- void trainieren ()  erhöht die Trainingsdauer um 1 Minute
+- void trainieren (int minuten)  erhöht die Trainingsdauer um 5 Minuten
+- boolean zielErreicht(int kalorienZiel)  liefert true, wenn das Training das in kalorienZiel festgelegte Ziel (zum Verbrennen der der Kalorien) erreicht hat. Dabei sollen die Dauer des Trainings und der durchschnittliche Kalorienverbrauch des Fitnessgeräts berücksichtigt werden.
+- int erforderlicheTrainingszeit (int kalorienZiel)  liefert die Anzahl der Minuten, die erforderlich sind, um die in kalorienZiel festgelegten Kalorien zu verbrennen
+
+
+Methoden
+- Ein Konstruktor zum Festlegen des Fitnessgeräts
+- Ein Konstruktor zum Festlegen des Fitnessgeräts, Datums und Startzeit
+
+
+
+Muskelgruppe
+- Bezeichnung der Muskelgruppe
+- Eine Liste mit allen Muskeln der Muskelgruppe. Ein einzelner Muskel kann als Zeichenkette (z.B. „Trizep“) gespeichert werden, die Liste dieser Strings könnte in einem Array gespeichert werden.
+
+Methoden
+- boolean enthält(String muskel)  liefert true, wenn diese Muskelgruppe den angegebenen muskel enthält.

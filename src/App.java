@@ -16,55 +16,55 @@ public class App {
         LocalDateTime startingTime = LocalDateTime.now();
         Training start = new Training(startingDate, startingTime);
 
-
-        //Array der Muskelgruppen definieren
-        String[] armMuskeln = {"Bizeps", "Trizeps","Unterarmmuskeln"};
-        String[] rueckenMuskeln = {"Latissimus","Trapezius","Rückenstrecker"};
-        String[] schulterMuskeln = {"Delta Muskel","kleiner Rundmuskel","großer Rundmuskel"};
-        String[] brustMuskeln = {"Oberer Brustmuskel","Mittlerer Brustmuskel","Unterer Brustmuskel","Sägemuskel"};
-        String[] beinMuskeln = {"Quadrizeps","Beinbizeps","Gesäß","Waden"};
-        String[] bauchMuskeln = {"Oberer Bauchmuskeln","Untere Bauchmuskeln","Seitliche Bauchmuskeln"};
-
-
-        //Objekte MGroup aus Muskelarrays erzeugen
-        Musclegroup ruecken = new Musclegroup("Rücken", rueckenMuskeln);
-        Musclegroup schultern = new Musclegroup("Schultern", schulterMuskeln);
-        Musclegroup brust = new Musclegroup("Brust", brustMuskeln);
-        Musclegroup beine = new Musclegroup ("Beine", beinMuskeln);
-        Musclegroup arme = new Musclegroup("Arme", armMuskeln);
-        Musclegroup bauch = new Musclegroup("Bauch", bauchMuskeln);
+        //Objekte MGroup erzeugen und Muskeln in Array festlegen
+        Musclegroup ruecken = new Musclegroup("Rücken", new String[] {"Latissimus","Trapezius","Rückenstrecker"});
+        Musclegroup schultern = new Musclegroup("Schultern", new String[] {"Delta Muskel","kleiner Rundmuskel","großer Rundmuskel"});
+        Musclegroup brust = new Musclegroup("Brust", new String[] {"Oberer Brustmuskel","Mittlerer Brustmuskel","Unterer Brustmuskel","Sägemuskel"});
+        Musclegroup beine = new Musclegroup ("Beine", new String[] {"Quadrizeps","Beinbizeps","Gesäß","Waden"});
+        Musclegroup arme = new Musclegroup("Arme", new String[] {"Bizeps", "Trizeps","Unterarmmuskeln"});
+        Musclegroup bauch = new Musclegroup("Bauch", new String[] {"Oberer Bauchmuskeln","Untere Bauchmuskeln","Seitliche Bauchmuskeln"});
 
         //Geraete erzeugen
         Mashine laufband = new Mashine("Laufband","Cardio", beine, 300, 30, true);
-        Mashine fahrrad = new Mashine("Fahrrad", "Cardio", beine,360, 45, false);
-        Mashine langhantel = new Mashine("Langhantel", "Hypertrophie", ruecken, 5, 50, false);
+        Mashine fahrrad = new Mashine("Fahrrad", "Cardio", beine,360, 40, false);
+        Mashine langhantel = new Mashine("Langhantel", "Freihantel", ruecken, 5, 50, false);
+        Mashine ergometer = new Mashine("Ergometer", "Cardio", ruecken, 60, 45, false);
 
 
 
 
-        Exercise joggen = new Exercise ("Joggen", laufband, 10, 1, 0, 450, beinMuskeln);
-        joggen.setMinutes(45);
-        Exercise latzug = new Exercise("Latzug", langhantel, 100, 3, 12, 1, rueckenMuskeln);
+        Exercise joggen = new Exercise ("Joggen", laufband, 10, 1, 0, 450, new Musclegroup[] {beine});
+        joggen.setMinutes(0);
+        Exercise latzug = new Exercise("Latzug", langhantel, 100, 3, 12, 1, new Musclegroup[] {ruecken, arme});
         latzug.setMinutes(1);
-        Exercise ruderzug = new Exercise("Ruderzug", langhantel, 85.5, 3, 12, 1, rueckenMuskeln);
-        ruderzug.setMinutes(1);
+        Exercise rudern = new Exercise("Rudern", ergometer, new Musclegroup[] {ruecken, arme, beine, bauch, schultern});
+        rudern.setMinutes(20);
 
         start.ausgabe();
         joggen.ausgabe();
         laufband.benoetigtStromversorgung();
         laufband.burnedCalsPerM(30);
         laufband.burnedCalsPerHM(2,30 );
+        laufband.averageCalsPerH();
         latzug.ausgabe();
         langhantel.benoetigtStromversorgung();
-        ruderzug.ausgabe();
+        rudern.ausgabe();
+        rudern.trainsMuscle("Latissimus");
+        ergometer.trainsMuscleGroup(arme);
 
 
 
         joggen.calGoal(600);
         joggen.timeNessesary(600);
 
+
         laufband.trainsMuscleGroup(bauch);
         laufband.trainsMuscleGroup(beine);
+
+        while (!joggen.calGoal(800)){
+            joggen.Train(5);
+        }
+        joggen.getMashine().burnedCalsPerM(joggen.getMinutes());
 
 
 

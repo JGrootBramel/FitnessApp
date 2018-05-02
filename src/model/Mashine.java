@@ -37,7 +37,7 @@ public class Mashine {
         }
     }
 
-    public int getCalsPerMinute() {
+    int getCalsPerMinute() {
         return calsPerMinute;
     }
 
@@ -60,23 +60,25 @@ public class Mashine {
         System.out.println("Die Übung verbrennt durchschnittlich " + avergeCalsPerH + "Kalorien pro Stunde");
     }
 
-    public void benoetigtStromversorgung () {
-        if (electric == true){
+    public boolean benoetigtStromversorgung () {
+        if (electric){
             System.out.println("Das Gerät: " + name + " benötigt Strom");
         } else {
             System.out.println("Das Gerät: " + name + " benötigt keinen Strom.");
         }
+        return electric;
     }
 
     public boolean trainsMuscle (String trainsMuscle){
         return (Arrays.asList(musclegroup.getMuscles()).contains(trainsMuscle));
     }
 
+    public boolean trainsMGroup (String trainsMGroup){
+        return (Arrays.asList(musclegroup).contains(trainsMGroup));
+    }
+
     public boolean trainsMuscleGroup (Musclegroup trainsMuscleGroup) {
         return(trainsMuscleGroup.getName().equals(musclegroup.getName()));
     }
 
-
-
-    // Muskelgruppe und Muskel
 }
