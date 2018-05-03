@@ -61,6 +61,7 @@ public class App {
         laufband.trainsMuscleGroup(bauch);
         laufband.trainsMuscleGroup(beine);
 
+        //Funktioniert noch nicht
         while (!joggen.calGoal(800)){
             joggen.Train(5);
         }
