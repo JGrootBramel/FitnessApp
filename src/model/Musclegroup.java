@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class Musclegroup {
 
     private String[] mGroups = {"Rücken", "Schultern", "Brust", "Beine", "Bauch", "Beine"};
@@ -22,7 +24,7 @@ public class Musclegroup {
     }
     public void ausgabe() {
         System.out.println("Muskelgruppe: " + name);
-        for (int i = 0; i <muscles.length; i++) {
+        for (int i = 0; i < muscles.length; i++) {
             System.out.print(muscles[i] + " ");
         }
         System.out.println();
@@ -34,7 +36,9 @@ public class Musclegroup {
         }
     }
 
-
+    public boolean containsMuscle(String muscle){
+        return (Arrays.asList(this.muscles).contains(muscle));
+    }
 }
 
 //Quellen
