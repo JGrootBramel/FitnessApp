@@ -1,16 +1,12 @@
 In Progress
 
 TODO
+average CalsPerH und calsPerMinute zusammenführen
 Mashine
-Methoden
-- boolean unterstuetzt(String muskel)  liefert true, wenn dieses Gerät den angegebenen muskel unterstützt.
-- boolean unterstuetzt(Muskelgruppe muskelGruppe)  liefert true, wenn dieses Gerät ein eine bestimmte muskelGruppe unterstützt
 
 Trainingseinheit "Exercise"
 
 Muskelgruppe
-
-WHILE schleife
 
 DONE
 
@@ -26,7 +22,8 @@ Methoden
 - int kalorienverbrauch (int minuten)  liefert den Kalorienverbrauch für eine Trainingseinheit für die angegebene Zeitspanne (in minuten)
 - int kalorienverbrauch (int stunden, int minuten)  liefert den Kalorienverbrauch für eine Trainingseinheit für die angegebene Zeitspanne (in stunden und minuten)
 - boolean benoetigtStromversorgung ()  liefert true, wenn dieses Gerät Strom braucht
-
+- boolean unterstuetzt(String muskel)  liefert true, wenn dieses Gerät den angegebenen muskel unterstützt.
+- boolean unterstuetzt(Muskelgruppe muskelGruppe)  liefert true, wenn dieses Gerät ein eine bestimmte muskelGruppe unterstützt
 
 Trainingseinheit "Exercise"
 - Datum und Startzeit des Trainings
