@@ -1,5 +1,8 @@
 package model;
 
-public class TrainingAim {
-    String [] aims;
+public interface TrainingAim{
+    public int setCalAim (int calAim);
+    public int getCalAim ();
+    double getAimReachedpercentage ();
 }
+
