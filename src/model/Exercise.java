@@ -3,37 +3,41 @@ package model;
 public class Exercise {
 
     private String name;
-    private String type; //Cardio MaxKraft SchnellKraft Hypertrophie Regeneration Extra Klasse Trainigsziel
-//    private double weight;
-//    private int sets, reps;
-    private int calAim;
     private String startDate;
     private int startHour, startMinute;
     private int minutes;
     private int number;    //Nummer der Übung später Metode um Rheinfolge der Übungen zu ändern
-    private static int nextNumber = 1;
     private Musclegroup[] mGroup;
     private Mashine mashine;
 
+    public Exercise (){}
     public Exercise (String name, Mashine mashine){
-        number = Exercise.nextNumber++;
-        this.name = name;
-        this.mashine = mashine;
-        this.mGroup = null;
-        this.calAim = 0;
+        setName(name);
+        setMashine(mashine);
+        setmGroup(null);
     }
     public Exercise (String name, Mashine mashine, Musclegroup[] mGroup,String startDate, int startHour, int startMinute ){
-        number = Exercise.nextNumber++;
-        this.name = name;
-        this.mashine = mashine;
-        this.mGroup = mGroup;
-        this.startDate = startDate;
-        this.startHour = startHour;
-        this.startMinute = startMinute;
-        this.calAim = 0;
+
+        setName(name);
+        setMashine(mashine);
+        setmGroup(mGroup);
+        setStartDate(startDate);
+        setStartHour(startHour);
+        setStartMinute(startMinute);
     }
 
-
+    public String getName() {
+        return name;
+    }
+    public String getStartDate() {
+        return startDate;
+    }
+    public int getStartHour() {
+        return startHour;
+    }
+    public Musclegroup[] getmGroup() {
+        return mGroup;
+    }
     public int getMinutes() {
         return minutes;
     }
@@ -41,8 +45,23 @@ public class Exercise {
         return mashine;
     }
 
-    public void setCalAim(int calAim) {
-        this.calAim = calAim;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+    public void setStartHour(int startHour) {
+        this.startHour = startHour;
+    }
+    public void setStartMinute(int startMinute) {
+        this.startMinute = startMinute;
+    }
+    public void setmGroup(Musclegroup[] mGroup) {
+        this.mGroup = mGroup;
+    }
+    public void setMashine(Mashine mashine) {
+        this.mashine = mashine;
     }
     public void setMinutes(int minutes) {
         this.minutes = minutes;

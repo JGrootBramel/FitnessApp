@@ -72,11 +72,6 @@ public class Mashine {
         }
 
         public boolean benoetigtStromversorgung () {
-            if (electric) {
-                System.out.println("Das Gerät: " + name + " benötigt Strom");
-            } else {
-                System.out.println("Das Gerät: " + name + " benötigt keinen Strom.");
-            }
             return electric;
         }
 
