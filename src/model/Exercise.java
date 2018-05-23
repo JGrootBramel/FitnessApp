@@ -6,7 +6,6 @@ public class Exercise {
     private String startDate;
     private int startHour, startMinute;
     private int minutes;
-    private int number;    //Nummer der Übung später Metode um Rheinfolge der Übungen zu ändern
     private Musclegroup[] mGroup;
     private Mashine mashine;
 
@@ -17,7 +16,6 @@ public class Exercise {
         setmGroup(null);
     }
     public Exercise (String name, Mashine mashine, Musclegroup[] mGroup,String startDate, int startHour, int startMinute ){
-
         setName(name);
         setMashine(mashine);
         setmGroup(mGroup);
@@ -75,7 +73,6 @@ public class Exercise {
 
     // Minuten auch in Stunden umrechnen
     public int timeNessesary (int calGoal) {
-        System.out.println("Um " + calGoal + " kcal zu verbrennen musst du die Übung " + name + " für " + calGoal / mashine.getCalsPerMinute() + " Minuten ausführen");
         return calGoal / mashine.getCalsPerMinute();
     }
 
@@ -89,25 +86,27 @@ public class Exercise {
     }
 
     public void train (int minutes) {
-        this.minutes += minutes;
+        int trained = getMinutes();
+        setMinutes(trained + minutes);
     }
 
-
-/*    private int calsPerMinute;
+    //Gibt verbrannte Calorien zurück Berechnungsgrundlage Minuten in der Klassenvariabelen
+    public int burnedCals () {
+        int burnedCals = mashine.getCalsPerMinute()* getMinutes();
+        return burnedCals;
+    }
 
     public int burnedCals (int minutes) {
-        int burnedCals = minutes * calsPerMinute;
-        System.out.println("In "+ minutes + " Minuten hast du " + burnedCals + " kcal verbrannt");
+        int burnedCals = mashine.getCalsPerMinute()* minutes;
         return burnedCals;
     }
 
     public int burnedCals (int hour, int minutes) {
-        int burnedCals = (hour * 60 + minutes) * calsPerMinute;
-        System.out.println("In "+ minutes + " Minuten hast du " + burnedCals + " kcal verbrannt");
+        int burnedCals = mashine.getCalsPerMinute() * (hour * 60 + minutes);
         return burnedCals;
     }
 
-    public Exercise (String name, Mashine mashine, double weight, int sets, int reps, int calAim, Musclegroup[] mGroup) {
+/*    public Exercise (String name, Mashine mashine, double weight, int sets, int reps, int calAim, Musclegroup[] mGroup) {
         number = Exercise.nextNumber++;
         this.name = name;
         this.mashine = mashine;

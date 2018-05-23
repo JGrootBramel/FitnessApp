@@ -1,4 +1,5 @@
 import model.Exercise;
+import model.ExerciseWithAim;
 import model.Mashine;
 import model.Musclegroup;
 
@@ -24,9 +25,6 @@ public class App {
         Mashine schultertrainer = new Mashine("Schultertrainer", schultern, 5 ,500, false);
         Mashine ergometer = new Mashine("Ergometer", "Cardio", ruecken, 60, 45, false);
 
-
-
-
         //Übungen erzeugen
         System.out.println("\nÜbungen werden erzeugt");
         Exercise joggen = new Exercise("Joggen", laufband, new Musclegroup[] {beine, bauch} , "03.05.18", 13 ,42);
@@ -37,6 +35,16 @@ public class App {
 
         Exercise rudern = new Exercise("Rudern", ergometer, new Musclegroup[] {ruecken, arme, beine, bauch, schultern}, "02.05.18", 14, 15);
         rudern.setMinutes(10);
+
+        //MS2 Methoden
+        ExerciseWithAim joggen2 = new ExerciseWithAim("Joggen", laufband, new Musclegroup[] {beine}, "23.05.18", 15, 05,327);
+
+        joggen2.setMinutes(6);
+        System.out.println(joggen2.burnedCals());
+        System.out.println(joggen2.getDegree() + "%");
+        joggen2.train(5);
+        System.out.println(joggen2.burnedCals());
+        System.out.println(joggen2.getDegree() + "%");
 
         //Exercise Methoden
 /*        System.out.println("\nExercise Methoden");
@@ -67,7 +75,8 @@ public class App {
         System.out.println("\nMuskelgruppen Methoden");
         System.out.println(ruecken.containsMuscle("Latissimus"));
         System.out.println(ruecken.containsMuscle("Biezeps"));
-*/
+
+
 
         Exercise schulterheben = new Exercise("Schulterheben", schultertrainer, new Musclegroup[]{schultern}, "03.05.18", 15,47);
         schulterheben.setMinutes(10);
@@ -81,7 +90,7 @@ public class App {
 //        schulterheben.getMashine().burnedCals(schulterheben.getMinutes());
         System.out.println("Trainierte Minuten: " + schulterheben.getMinutes());
         System.out.println("Verbrannte Kalorien: " + schulterheben.getMashine().burnedCals(schulterheben.getMinutes()));
-    }
+*/    }
 }
 
 // Trainingsplan erstellen je nach TrainingsZiel mit den jeweiligen Wiederholungen und Sätzen
