@@ -1,7 +1,4 @@
-import model.Exercise;
-import model.ExerciseWithAim;
-import model.Mashine;
-import model.Musclegroup;
+import model.*;
 
 public class App {
 
@@ -34,17 +31,37 @@ public class App {
         latzug.setMinutes(1);
 
         Exercise rudern = new Exercise("Rudern", ergometer, new Musclegroup[] {ruecken, arme, beine, bauch, schultern}, "02.05.18", 14, 15);
-        rudern.setMinutes(10);
+
 
         //MS2 Methoden
         ExerciseWithAim joggen2 = new ExerciseWithAim("Joggen", laufband, new Musclegroup[] {beine}, "23.05.18", 15, 05,327);
 
-        joggen2.setMinutes(6);
-        System.out.println(joggen2.burnedCals());
+
+/*        System.out.println(joggen2.burnedCals());
         System.out.println(joggen2.getDegree() + "%");
         joggen2.train(5);
         System.out.println(joggen2.burnedCals());
         System.out.println(joggen2.getDegree() + "%");
+
+*/
+
+        TrainingProgram cardioTraining  = new TrainingProgram();
+        cardioTraining.addExercise(joggen2);
+        cardioTraining.addExercise(rudern);
+        cardioTraining.addExercise(joggen);
+        joggen2.setMinutes(6);
+        rudern.setMinutes(5);
+        cardioTraining.setCalAim(900);
+        System.out.println("Minuten trainiert: " + cardioTraining.getTotalMinutes());
+        System.out.println("CalAim = " + cardioTraining.getCalAim());
+        System.out.println("Verbrannte Calorien: " + cardioTraining.totalCaloriesBurned());
+        System.out.println(cardioTraining.getDegree() + "%");
+        System.out.println("Minuten am Laufband trainiert: " + cardioTraining.getTotalMinutesTrainedAtMashine("Laufband"));
+        joggen2.train(10);
+        System.out.println("Minuten trainiert: " + cardioTraining.getTotalMinutes());
+        System.out.println("Verbrannte Calorien: " + cardioTraining.totalCaloriesBurned());
+        System.out.println(cardioTraining.getDegree() + "%");
+        System.out.println("Minuten am Laufband trainiert: " + cardioTraining.getTotalMinutesTrainedAtMashine("Laufband"));
 
         //Exercise Methoden
 /*        System.out.println("\nExercise Methoden");
